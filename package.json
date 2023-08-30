@@ -1,0 +1,16 @@
+{
+  "name": "interactive-rating-component-main",
+  "version": "1.0.0",
+  "description": "frontend",
+  "main": "index.js",
+  "scripts": {
+    "watch": "npx tailwindcss -i ./input.css -o ./css/main.css --watch",
+    "build": "npx tailwindcss -i ./input.css -o ./css/main.css "
+
+  },
+  "author": "Nathnael",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}

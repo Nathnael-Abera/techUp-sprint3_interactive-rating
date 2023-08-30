@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+  <style>
+    .selected {
+      background-color: #7C8898;
+    }
+  </style>
+</head>
+<body class="">
+<div  class="sm:h-128 bg-lightblack flex items-center ">
+  <div id="div-1" class="bg-bluegrey w-96 h-90 container mx-auto rounded-3xl p-7 ">
+    <div class="rounded-full bg-lightbluegrey mb-6 w-11 h-11 p-3.5 ">
+      <img src="./images/icon-star.svg" alt="" srcset="">
+
+    </div>
+    <h1 class="text-2xl text-sky-100 mb-2 font-medium ">How did we do?</h1>
+    <p class="text-slate-500 text-sm">please let us know how we did with your support request. all feedback is appreciated to help us improve our offering!</p>
+    <div class="flex my-6">
+      <div id="rating" class=" rate w-11 h-11 rounded-full bg-lightbluegrey container mx-auto text-slate-500 hover:bg-LORANGE  hover:text-white hover:cursor-pointer pt-2.5 pl-4 ">1</div>
+      <div id="rating" class="rate w-11 h-11 rounded-full bg-lightbluegrey container mx-auto text-slate-500 hover:bg-LORANGE  hover:text-white hover:cursor-pointer pt-2.5 pl-4">2</div>
+      <div id="rating" class="rate w-11 h-11 rounded-full bg-lightbluegrey container mx-auto text-slate-500 hover:bg-LORANGE  hover:text-white hover:cursor-pointer pt-2.5 pl-4">3</div>
+      <div id="rating" class="rate w-11 h-11 rounded-full bg-lightbluegrey container mx-auto text-slate-500 hover:bg-LORANGE  hover:text-white hover:cursor-pointer pt-2.5 pl-4">4</div>
+      <div id="rating" class="rate w-11 h-11 rounded-full bg-lightbluegrey container mx-auto text-slate-500 hover:bg-LORANGE  hover:text-white hover:cursor-pointer pt-2.5 pl-4">5</div>
+    </div>
+
+   <div id="submit-btn" class="bg-LORANGE w-80 h-9 container mx-auto pl-32 pt-2 rounded-3xl text-white text-xs tracking-4 font-medium hover:bg-white hover:text-LORANGE">
+    SUBMIT
+   </div>
+
+    
+  </div>
+  <div id="div-2" class="bg-bluegrey2 w-96 h-90 container mx-auto rounded-3xl p-7 hidden  ">
+    <div class=" flex justify-center ">
+      <img class="mb-3" src="./images/illustration-thank-you.svg" alt="" srcset="">
+    </div>
+    <div class=" flex justify-center mt-3">
+    <p id="output" class="bg-bluegrey rounded-2xl text-LORANGE text-center w-48 text-sm">You selected 4 out of 5</p>
+    </div>
+    <div class="text-center my-5">
+      <h1 class="text-2xl text-sky-100 mb-2 font-medium  ">Thank you!</h1>
+      <p class="text-slate-500 text-sm ">We appreciate you taking the time to give rating.</p>
+      <p class="text-slate-500 text-sm ">if you ever need more support ,dont hesitate to </p>
+      <p class="text-slate-500 text-sm ">get in touch!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const btn= document.getElementById('submit-btn');
+  const div1=document.getElementById('div-1');
+  const out=document.getElementById('output');
+  const div2=document.getElementById('div-2');
+  const rate=document.querySelectorAll('.rate')
+
+  rate.forEach(r=>{
+    r.addEventListener('click',()=>{
+      const ratingValue=parseInt(r.innerHTML);
+      rate.forEach(r=>{r.classList.remove('selected');})
+        r.classList.add('selected');
+      console.log('Selected rating:', ratingValue);
+      out.innerHTML=`You selected ${ratingValue} out of 5`
+    })
+  })
+
+ btn.addEventListener('click',(e)=>{
+  e.preventDefault();
+  div1.classList.add('hidden')
+  div2.classList.remove('hidden')
+  
+ })
+</script>
+</body>
+</html>
